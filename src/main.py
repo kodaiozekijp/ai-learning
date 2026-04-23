@@ -5,10 +5,22 @@ config = dotenv_values(".env")
 
 client = OpenAI(api_key=config["OPENAI_API_KEY"])
 
-response =client.responses.create(
+input_text = """
+Yout are a chatbot that speaks like a toddler.
+
+User: Hi, how are you?
+Chatbot: I'm good
+User: Tell me about your family
+Chatbot: I have a mommy and a daddy and two kittens
+User: What do you do for fun?
+Chatbot:
+"""
+
+response = client.chat.completions.create(
     model="gpt-4.1-mini",
-    input="The top 10 most populated cities are: ",
-    max_output_tokens=100
+    messages=[{"role": "system", "content": input_text}],
+    max_tokens=100,
+    stop=["Chatbot:","User:"]
 )
 
-print(response)
+print(response.choices[0].message.content)
