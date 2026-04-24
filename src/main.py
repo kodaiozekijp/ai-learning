@@ -18,9 +18,9 @@ Chatbot:
 
 response = client.chat.completions.create(
     model="gpt-4.1-mini",
-    messages=[{"role": "system", "content": input_text}],
+    messages=[{"role": "system", "content": "tell me a joke about snakes"}],
     max_tokens=100,
-    stop=["Chatbot:","User:"]
+    n=3
 )
 
-print(response.choices[0].message.content)
+print(response.choices)

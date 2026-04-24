@@ -1,7 +1,9 @@
-## 学習ログ
+# AI Learning Road Map
+## 目標
+5年で億を掴むためのAIエンジニア育成記録
 
-### 2026/04/22
-- Udemyコース開始：Mastering OpenAI Python APIs
-- Section1（8講義）完了
-- 学んだこと：OpenAI概要、ニューラルネットワーク基礎、APIキー作成
-- 次回：Section2からコードを書き始める
+## 使用教材
+- Udemy: Mastering OpenAI Python APIs
+
+## 学習ログ
+→ [LEARNING_LOG.md](./LEARNING_LOG.md)
