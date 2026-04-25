@@ -40,3 +40,10 @@
  ・Zero-Shot, Few-Shot
  ・Let's think step by step
  ・Transform
+
+ ## 2026/04/25
+- Section3 27～29完了
+- Section4 30〜35完了
+- FlaskではなくFastAPIで進める方針決定
+- Flask→FastAPI の対応関係を確認
+- 次回：36「Writing the Palette Endpoint」から
