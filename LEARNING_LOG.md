@@ -37,3 +37,6 @@
  ・Summarization Prompts
  ・Data Extraction Prompts
  ・Sentiment Analysis Prompts
+ ・Zero-Shot, Few-Shot
+ ・Let's think step by step
+ ・Transform

@@ -1,26 +1,27 @@
+from fastapi import FastAPI
+from fastapi.templating import Jinja2Templates
+from fastapi.responses import Response
+from fastapi.requests import Request
 from openai import OpenAI
 from dotenv import dotenv_values
 
 config = dotenv_values(".env")
-
 client = OpenAI(api_key=config["OPENAI_API_KEY"])
 
-input_text = """
-Yout are a chatbot that speaks like a toddler.
+app = FastAPI()
+templates = Jinja2Templates(directory="templates")
 
-User: Hi, how are you?
-Chatbot: I'm good
-User: Tell me about your family
-Chatbot: I have a mommy and a daddy and two kittens
-User: What do you do for fun?
-Chatbot:
-"""
+@app.get("/")
+def read_root(request: Request) -> Response:
+    response = client.chat.completions.create(
+        model="gpt-4.1-mini",
+        messages=[{"role": "system", "content": "give me one funny word"}]
+    )
+    return response.choices[0].message.content
+    # return templates.TemplateResponse(request,"index.html")
 
-response = client.chat.completions.create(
-    model="gpt-4.1-mini",
-    messages=[{"role": "system", "content": "tell me a joke about snakes"}],
-    max_tokens=100,
-    n=3
-)
+# @app.post("/palette")
+# def prompt_to_palette(request: Request) -> Response:
+    # OPEN AI COMPLETION CALL
 
-print(response.choices)
+    # RETURN LIST OF COLORS
