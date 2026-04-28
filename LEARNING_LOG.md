@@ -47,3 +47,10 @@
 - FlaskではなくFastAPIで進める方針決定
 - Flask→FastAPI の対応関係を確認
 - 次回：36「Writing the Palette Endpoint」から
+
+## 2026/04/28
+- Section4 36完了
+- FastAPI Form取得方法確認（Annotated推奨記法）
+- get_colors関数実装（OpenAI APIでカラーパレット生成）
+- FastAPI POSTエンドポイント完成
+- 次回：37「Creating The Form」から
