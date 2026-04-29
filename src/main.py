@@ -3,6 +3,7 @@ from fastapi import FastAPI, Form
 from fastapi.templating import Jinja2Templates
 from fastapi.responses import Response
 from fastapi.requests import Request
+from fastapi.staticfiles import StaticFiles
 import logging
 from openai import OpenAI
 from typing import Annotated
@@ -14,6 +15,7 @@ config = dotenv_values(".env")
 client = OpenAI(api_key=config["OPENAI_API_KEY"])
 
 app = FastAPI()
+app.mount("/static", StaticFiles(directory="static"), name="static")
 templates = Jinja2Templates(directory="templates")
 
 def get_colors(message: str) -> list[str]:
@@ -47,8 +49,8 @@ def read_root(request: Request) -> Response:
         model="gpt-4.1-mini",
         messages=[{"role": "system", "content": "give me one funny word"}]
     )
-    return response.choices[0].message.content
-    # return templates.TemplateResponse(request,"index.html")
+    # return response.choices[0].message.content
+    return templates.TemplateResponse(request,"index.html")
 
 @app.post("/palette")
 def prompt_to_palette(request: Request, query: Annotated[str, Form()]) -> Response:

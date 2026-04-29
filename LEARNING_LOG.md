@@ -54,3 +54,10 @@
 - get_colors関数実装（OpenAI APIでカラーパレット生成）
 - FastAPI POSTエンドポイント完成
 - 次回：37「Creating The Form」から
+
+## 2026/04/29
+- Section4 37〜41完了
+- HTMLフォーム作成
+- StaticFiles設定（CSS適用）
+- URLSearchParamsでform-data送信の仕組み理解
+- 次回：42「Refactoring Our Front-End Code」から
