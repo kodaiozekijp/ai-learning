@@ -61,3 +61,14 @@
 - StaticFiles設定（CSS適用）
 - URLSearchParamsでform-data送信の仕組み理解
 - 次回：42「Refactoring Our Front-End Code」から
+
+## 2026/04/30
+- Section4 42完了（カラーパレットアプリ完成）
+- Section5 43〜47完了
+- 学んだこと：temperature・top_p・frequency_penalty・presence_penalty・streaming
+- Tempature: 高いほど回答のランダム性があがる(0~2)
+- Top P: どのトークンが選ばれて、どのトークンが選ばれないかを決めるサンプリング・ウィンドウの幅を設定するようなもの(0~1)
+- Frequency Penalty: 繰り返しの可能性、値が大きい程、繰り返す可能性が下がる(-2~2)
+- Presence Penalty: 同じ行を逐語的に繰り返す可能性を減らす(-2~2)
+- steram: TrueにするとPythonではジェネレーターと呼ばれるものが返される(boolean)
+- 次回：48から
