@@ -62,7 +62,7 @@
 - URLSearchParamsでform-data送信の仕組み理解
 - 次回：42「Refactoring Our Front-End Code」から
 
-## 2026/04/30
+## 2026/05/01
 - Section4 42完了（カラーパレットアプリ完成）
 - Section5 43〜47完了
 - 学んだこと：temperature・top_p・frequency_penalty・presence_penalty・streaming
@@ -72,3 +72,9 @@
 - Presence Penalty: 同じ行を逐語的に繰り返す可能性を減らす(-2~2)
 - steram: TrueにするとPythonではジェネレーターと呼ばれるものが返される(boolean)
 - 次回：48から
+
+## 2026/05/02
+- role:system, user, assistantにそれぞれcontentで指示を出すことができる
+- Section6 48〜54完了（Chat APIの基礎）
+- Section7 55〜59完了（チャットボット完成）
+- 次回：60から
