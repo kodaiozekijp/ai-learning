@@ -96,3 +96,9 @@
 - Section11 79〜82完了（動画視聴のみ）
 - Spotifyプレイリスト生成の全体像を把握
 - for...elseの挙動・2段階クエリの仕組みを理解
+- Section12 83〜88完了
+- Embeddings: Embeddings are numerical representations of text concepts converted to number sequences
+  → ベクトルに変換することで類似商品を見つけやすくなったりする
+- Embeddingの概念理解（テキスト→数値ベクトル変換）
+- 5000本映画のEmbedding可視化プロジェクト導入
+- 次回：89「Add your Tenacity Import」から
