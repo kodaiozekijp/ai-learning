@@ -5,6 +5,7 @@ import pickle
 from dotenv import dotenv_values
 from tenacity import retry, wait_random_exponential, stop_after_attempt
 from nomic import atlas
+from openai import distances_from_embeddings, indices_of_nearest_neighbors_from_embeddings
 
 config = dotenv_values(".env")
 openai.api_key = config["OPENAI_API_KEY"]
@@ -58,3 +59,32 @@ atlas_project = atlas.map_data(
     embeddings=np.array(plot_embeddings),
     data=data
 )
+
+def print_recommendations_from_strings(
+    strings,
+    index_of_source_string,
+    k_nearest_neighbors=3,
+    model="text-embedding-3-small"
+):
+    # get all of the embeddings
+    embeddings = [embedding_from_string(string, model) for string in strings]
+    # get embedding for our specific query string
+    query_embedding = embeddings[index_of_source_string]
+    # get distances between our embedding and all other embeddings
+    distances = distances_from_embeddings(query_embedding, embeddings)
+    # get indices of the nearest neighbors  
+    indices_of_nearest_neighbors = indices_of_nearest_neighbors_from_embeddings(query_embedding, embeddings)
+
+    query_string = strings[index_of_source_string]
+    match_count = 0
+    for i in indices_of_nearest_neighbors:
+        if query_string == strings[i]:
+            continue
+        if match_count >= k_nearest_neighbors:
+            break
+        match_count += 1
+        print(f"Found {match_count} closet match: ")
+        print(f"Distance: {distances[i]}")
+        print(f"strings[i]")
+
+
