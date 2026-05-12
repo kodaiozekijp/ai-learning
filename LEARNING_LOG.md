@@ -102,3 +102,10 @@
 - Embeddingの概念理解（テキスト→数値ベクトル変換）
 - 5000本映画のEmbedding可視化プロジェクト導入
 - 次回：89「Add your Tenacity Import」から
+
+## 2026/05/12
+- Section12 89〜92完了
+- 5000本映画のEmbedding生成・Nomic Atlasで2次元可視化
+- 類似映画推薦機能の実装✅
+- tiktokenでトークン上限対応
+- 次回：Section13 93「Expanding GPT-4 Knowledge With Embeddings」から
