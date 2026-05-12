@@ -4,6 +4,7 @@ import numpy as np
 import pickle
 from dotenv import dotenv_values
 from tenacity import retry, wait_random_exponential, stop_after_attempt
+from nomic import atlas
 
 config = dotenv_values(".env")
 openai.api_key = config["OPENAI_API_KEY"]
@@ -19,7 +20,13 @@ def get_embedding(text, model="text-embedding-3-small"):
     # replace newlines, which can negatively affect performance.
     text = text.replace("\n", " ")
 
-    return  openai.embeddings.create(input=[text], model=model)["data"][0]["embedding"]
+    # Truncate text to fit within the 8192 token limit
+    # 1 token ≈ 4 characters, so the character limit is 8192 × 4 = 32768
+    max_chars = 32000  # Add a little extra space
+    if len(text) > max_chars:
+        text = text[:max_chars]
+
+    return  openai.embeddings.create(input=[text], model=model).data[0].embedding
 
 # establish a cache of embeddings to avoid recomputing
 # cache is a dict of tuples (text, model) -> embedding, saved as a pickle file
@@ -45,3 +52,9 @@ def embedding_from_string(string, model="text-embedding-3-small", embedding_cach
     return embedding_cache[(string, model)]
 
 plot_embeddings = [embedding_from_string(plot, model="text-embedding-3-small") for plot in movie_plot]
+data = movies[["Title", "Genre"]].to_dict("records")
+
+atlas_project = atlas.map_data(
+    embeddings=np.array(plot_embeddings),
+    data=data
+)
