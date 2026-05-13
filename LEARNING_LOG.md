@@ -109,3 +109,18 @@
 - 類似映画推薦機能の実装✅
 - tiktokenでトークン上限対応
 - 次回：Section13 93「Expanding GPT-4 Knowledge With Embeddings」から
+
+## 2026/05/13
+- Section13 93〜95完了
+- 自力でRAGを実装（career_bot.py）
+  - ファイル読み込み・段落分割
+  - Embedding生成・キャッシュ管理
+  - コサイン類似度によるインデックス取得
+  - 類似段落検索
+  - GPTへのコンテキスト渡しと回答生成
+- 詰まったポイントと解決
+  - 変数名と関数名の衝突（indices_of_nearest_neighbors）
+  - returnがループ内にあった問題
+  - モデル定数化による変更への対応
+- 動作確認：「目標は？」への回答成功
+- 次回：Section14 96から
