@@ -132,3 +132,13 @@
   - 本の要約プロジェクトの概要把握
   - トークン上限を超えないようにテキストを分割して要約する設計を理解
 - 次回：103「Summarization Logic」から実装へ
+
+## 2026/05/17
+- Section15 103〜105完了（動画視聴・コード読解）
+- 理解した内容：
+  - memoize_to_fileデコレータ（クロージャ・キャッシュ設計）
+  - take_tokens（トークン上限での分割ロジック）
+  - gpt_summarize（リトライ・Exponential Backoff）
+  - summarize（再帰的Map-Reduceパターン）
+  - synthesize_summaries（2段階モデル設計）
+- 次回：Book Summarizerを実際に手を動かして実装
