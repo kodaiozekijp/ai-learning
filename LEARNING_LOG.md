@@ -142,3 +142,13 @@
   - summarize（再帰的Map-Reduceパターン）
   - synthesize_summaries（2段階モデル設計）
 - 次回：Book Summarizerを実際に手を動かして実装
+
+## 2026/05/19
+- Section15 Book Summarizer 実装着手
+- tiktokenを利用したトークン数チェック実装完了
+- メイン処理の設計完了
+  1. 本の読み込み
+  2. 段落分割→トークン数チェック→分割→要約→再帰処理
+  3. 要約の結合→最終要約取得
+  4. 要約の出力
+- 次回：各関数の実装へ
